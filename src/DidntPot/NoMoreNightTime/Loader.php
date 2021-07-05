@@ -22,20 +22,6 @@ use pocketmine\Server;
 
 class Loader extends PluginBase{
 
-    public function onEnable() : void{
-
-        // Get all worlds from 'worlds' folder.
-        foreach(glob($this->getServer()->getDataPath() . "worlds/*") as $world){
-            $world = str_replace($this->getServer()->getDataPath() . "worlds/", "", $world);
-
-            // Check if the world has been loaded or not.
-            if($this->getServer()->isLevelLoaded($world)){
-                // Set the time to day time.
-                $world->setTime(0);
-                // Stop the time completely.
-                $world->stopTime();
-            }
-        }
-    }
+    public function onEnable() : void{}
 
 }
