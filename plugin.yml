@@ -1,0 +1,6 @@
+name: NoMoreNightTime
+main: DidntPot\NoMoreNightTime\Loader
+api: [3.0.0]
+version: 1.0.0
+author: DidntPot
+description: "A simple plugin which disables night time."
