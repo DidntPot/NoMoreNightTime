@@ -20,8 +20,36 @@ use pocketmine\plugin\PluginBase;
 
 use pocketmine\Server;
 
-class Loader extends PluginBase{
+use pocketmine\level\Level;
 
-    public function onEnable() : void{}
+use pocketmine\event\Listener;
+use pocketmine\event\level\LevelLoadEvent;
+
+class Loader extends PluginBase implements Listener{
+
+    public function onEnable() : void{
+        
+        // Gets all loaded worlds.
+        foreach($this->getServer()->getLevels() as $world){
+
+            // Sets the time to day.
+            $world->setTime(0);
+            // Stops the time completely.
+            $world->stopTime();
+
+        }
+
+    }
+
+    public function onLevelLoadEvent(LevelLoadEvent $event){
+
+        $world = $event->getLevel();
+
+        // Sets the time to day.
+        $world->setTime(0);
+        // Stops the time completely.
+        $world->stopTime();
+        
+    }
 
 }
